@@ -4,8 +4,8 @@ from model.Lineup import Lineup, LineupParty, LineupPlayer
 
 
 def load_players(players_data_file: str) -> []:
-    my_players_raw_data = readFileAsJson(players_data_file)
-    post = my_players_raw_data["post"]
+    players_raw_data = readFileAsJson(players_data_file)
+    post = players_raw_data["post"]
 
     players = []
     for player_id, player_raw in post.items():
