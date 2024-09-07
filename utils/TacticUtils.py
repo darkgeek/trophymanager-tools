@@ -87,14 +87,16 @@ def get_finish_style_possibility(style: AttackingStyle, finish_style: FinishStyl
     return TACTIC_STYLE_TO_POSSIBILITY_DICT[style.name + "-" + finish_style.name]
 
 
-def calculate_effective_value_for_gk(ori_value: int, back_players: [Player], finish_style: FinishStyle):
-    effeftive_value = float(ori_value) * 0.7
+def calculate_effective_value_for_gk(ori_value: int, back_players: [Player], finish_style: FinishStyle) -> int:
     gk_backs_ratio = FINISH_STYLE_TO_GK_BACKS_RATIO_DICT[finish_style.name]
 
+    value_from_backs = 0.0
     for player in back_players:
-        effeftive_value = effeftive_value + player.marking * gk_backs_ratio[0] + player.tackling * gk_backs_ratio[1] + player.positioning * gk_backs_ratio[2] + player.heading * \
+        value_from_backs = value_from_backs + player.marking * gk_backs_ratio[0] + player.tackling * gk_backs_ratio[1] + player.positioning * gk_backs_ratio[2] + player.heading * \
             gk_backs_ratio[3] + player.strength * gk_backs_ratio[4] + player.stamina * \
             gk_backs_ratio[5] + player.pace * gk_backs_ratio[6] + \
             player.workrate * gk_backs_ratio[7]
 
-    return effeftive_value
+    effeftive_value = float(ori_value) * 0.7 + value_from_backs / len(back_players)
+
+    return int(effeftive_value)
