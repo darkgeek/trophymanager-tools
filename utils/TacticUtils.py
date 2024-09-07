@@ -97,6 +97,7 @@ def calculate_effective_value_for_gk(ori_value: int, back_players: [Player], fin
             gk_backs_ratio[5] + player.pace * gk_backs_ratio[6] + \
             player.workrate * gk_backs_ratio[7]
 
-    effeftive_value = float(ori_value) * 0.7 + value_from_backs / len(back_players)
+    effeftive_value = float(ori_value) * 0.7 + \
+        value_from_backs / len(back_players)
 
     return int(effeftive_value)
