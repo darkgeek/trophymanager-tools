@@ -29,7 +29,7 @@ class FinishDuelStyle:
 
 @dataclass
 class GkDuelReport:
-    finish_style: FinishDuelStyle
+    finish_duel_style: FinishDuelStyle
     effeftive_gk_info: Player
 
 
@@ -39,4 +39,4 @@ class AttackingDuelReport:
     assist_players: [DuelPlayer]
     defend_players: [DuelPlayer]
     finish_players: [DuelPlayer]
-    gk_duel_report: [GkDuelReport]
+    gk_duel_reports: [GkDuelReport]
