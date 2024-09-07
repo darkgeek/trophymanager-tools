@@ -1,5 +1,6 @@
 from model.AttackingStyle import AttackingStyle
 from model.Player import Player
+from model.FinishStyle import FinishStyle
 
 TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "DIRECT-DR": 0.1,
@@ -55,6 +56,12 @@ POS_TO_POSSIBILITY_DICT = {
     "FC": 0
 }
 
+FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
+        "HEADER": [0.0, 0.0, 0.05, 0.14, 0.07, 0.0, 0.02, 0.02],
+        "NORMAL": [0.11, 0.07, 0.04, 0.0, 0.03, 0.0, 0.03, 0.02],
+        "LONGSHOT": [0.06, 0.12, 0.06, 0.0, 0.02, 0.0, 0.02, 0.02]
+}
+
 
 def get_assist_possibility(style: AttackingStyle, position: str) -> float:
     return TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT[style.name + "-" + position.upper()]
@@ -78,3 +85,13 @@ def get_finish_possibility(style: AttackingStyle, position: str) -> float:
 
 def get_finish_style_possibility(style: AttackingStyle, finish_style: FinishStyle):
     return TACTIC_STYLE_TO_POSSIBILITY_DICT[style.name + "-" + finish_style.name]
+
+
+def calculate_effective_value_for_gk(ori_value: int, back_players: [Player], finish_style: FinishStyle):
+    effeftive_value = float(ori_value) * 0.7
+    gk_backs_ratio = FINISH_STYLE_TO_GK_BACKS_RATIO_DICT[finish_style.name]
+
+    for player in back_players:
+        effeftive_value = effeftive_value + player.marking * gk_backs_ratio[0] + player.tackling * gk_backs_ratio[1] + player.positioning * gk_backs_ratio[2] + player.heading * gk_backs_ratio[3] + player.strength * gk_backs_ratio[4] + player.stamina * gk_backs_ratio[5] + player.pace * gk_backs_ratio[6] + player.workrate * gk_backs_ratio[7]
+
+    return effeftive_value
