@@ -44,13 +44,14 @@ def load_lineup_json(lineup_json_file: str, party: LineupParty) -> Lineup:
     lineup_raw_data = readFileAsJson(lineup_json_file)
     lineup_raw = lineup_raw_data["lineup"]
     lineup_for_party_raw = lineup_raw[party.value]
-    
+
     lineup_players = []
     for player_id, player_raw in lineup_for_party_raw.items():
-        player = LineupPlayer(no = player_raw["no"], position = player_raw["position"])
+        player = LineupPlayer(
+            no=player_raw["no"], position=player_raw["position"])
         lineup_players.append(player)
 
-    return Lineup(players = lineup_players)
+    return Lineup(players=lineup_players)
 
 
 def load_lineup_data(lineup_data_file: str) -> Lineup:
@@ -60,10 +61,10 @@ def load_lineup_data(lineup_data_file: str) -> Lineup:
     for line in lineup_raw_data:
         line = line.replace("\n", "")
         parts = line.split()
-        player = LineupPlayer(no = parts[1], position = parts[0])
+        player = LineupPlayer(no=parts[1], position=parts[0])
         players.append(player)
 
-    return Lineup(players = players)
+    return Lineup(players=players)
 
 
 my_players = load_players("my_players.json")

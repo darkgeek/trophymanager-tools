@@ -10,7 +10,7 @@ class LineupPlayer:
 
 @dataclass
 class Lineup:
-    players: [LineupPlayer] 
+    players: [LineupPlayer]
 
 
 class LineupParty(Enum):
