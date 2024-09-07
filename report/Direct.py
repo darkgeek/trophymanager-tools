@@ -1,3 +1,4 @@
+import copy
 from report.AbstractAttackingStyle import AbstractAttackingStyle
 from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no
 from model.FinishStyle import FinishStyle
@@ -83,7 +84,7 @@ class Direct(AbstractAttckingStyle):
             for finish_style in FinishStyle:
                 finish_duel_style = FinishDuelStyle(
                     style=finish_style, possibility=get_finish_style_possibility(my_attacking_style, finish_style))
-                effeftive_gk_info = player
+                effeftive_gk_info = copy.deepcopy(player)
 
                 report = GkDuelReport(
                     finish_duel_style=finish_duel_style, effeftive_gk_info=effeftive_gk_info)
