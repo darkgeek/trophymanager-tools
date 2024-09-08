@@ -55,7 +55,7 @@ class Direct(AbstractAttckingStyle):
                                        possibility=possibility, primary_skills=primary_skills, secondary_skills=secondary_skills)
             defend_players.append(defend_player)
 
-        return defend_players
+        return sorted(defend_players, key=attrgetter("possibility"), reverse=True)
 
     def buildFinishPlayers():
         finish_players = []
@@ -72,7 +72,7 @@ class Direct(AbstractAttckingStyle):
                                        possibility=possibility, primary_skills=primary_skills, secondary_skills=secondary_skills)
             finish_players.append(finish_player)
 
-        return finish_players
+        return sorted(finish_players, key=attrgetter("possibility"), reverse=True)
 
     def buildGkDuelReports():
         gk_duel_reports = []
