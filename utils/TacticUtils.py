@@ -3,35 +3,35 @@ from model.Player import Player
 from model.FinishStyle import FinishStyle
 
 TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
-    "DIRECT-DR": 0.1,
-    "DIRECT-DL": 0.1,
-    "DIRECT-DC": 0.04,
+    "DIRECT-RB": 0.1,
+    "DIRECT-LB": 0.1,
+    "DIRECT-CB": 0.04,
     "DIRECT-DMR": 0.13,
     "DIRECT-DML": 0.13,
     "DIRECT-DMC": 0.13,
-    "DIRECT-MR": 0.11,
-    "DIRECT-ML": 0.11,
-    "DIRECT-MC": 0.17,
+    "DIRECT-RM": 0.11,
+    "DIRECT-LM": 0.11,
+    "DIRECT-CM": 0.17,
     "DIRECT-OMR": 0.09,
     "DIRECT-OML": 0.09,
     "DIRECT-OMC": 0.11,
-    "DIRECT-FC": 0.11
+    "DIRECT-FW": 0.11
 }
 
 TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
-    "DIRECT-DR": 0.0,
-    "DIRECT-DL": 0.0,
-    "DIRECT-DC": 0.0,
+    "DIRECT-RB": 0.0,
+    "DIRECT-LB": 0.0,
+    "DIRECT-CB": 0.0,
     "DIRECT-DMR": 0.063,
     "DIRECT-DML": 0.063,
     "DIRECT-DMC": 0.063,
-    "DIRECT-MR": 0.125,
-    "DIRECT-ML": 0.125,
-    "DIRECT-MC": 0.125,
+    "DIRECT-RM": 0.125,
+    "DIRECT-LM": 0.125,
+    "DIRECT-CM": 0.125,
     "DIRECT-OMR": 0.188,
     "DIRECT-OML": 0.188,
     "DIRECT-OMC": 0.188,
-    "DIRECT-FC": 0.25
+    "DIRECT-FW": 0.25
 }
 
 TACTIC_STYLE_TO_POSSIBILITY_DICT = {
@@ -41,19 +41,19 @@ TACTIC_STYLE_TO_POSSIBILITY_DICT = {
 }
 
 POS_TO_POSSIBILITY_DICT = {
-    "DL": 0.205,
-    "DR": 0.205,
+    "LB": 0.205,
+    "RB": 0.205,
     "DC": 0.308,
     "DMR": 0.135,
     "DML": 0.135,
     "DMC": 0.173,
-    "MR": 0.058,
-    "ML": 0.058,
-    "MC": 0.064,
+    "RM": 0.058,
+    "LM": 0.058,
+    "CM": 0.064,
     "OMR": 0.026,
     "OML": 0.026,
     "OMC": 0.032,
-    "FC": 0
+    "FW": 0
 }
 
 FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
