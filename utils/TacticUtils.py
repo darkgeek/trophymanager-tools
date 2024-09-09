@@ -41,19 +41,27 @@ TACTIC_STYLE_TO_POSSIBILITY_DICT = {
 }
 
 POS_TO_POSSIBILITY_DICT = {
-    "LB": 0.205,
-    "RB": 0.205,
+    "DL": 0.205,
+    "DR": 0.205,
     "DC": 0.308,
+    "DCR": 0.308,
+    "DCL": 0.308,
     "DMR": 0.135,
     "DML": 0.135,
     "DMC": 0.173,
-    "RM": 0.058,
-    "LM": 0.058,
-    "CM": 0.064,
+    "DMCL": 0.173,
+    "DMCR": 0.173,
+    "MR": 0.058,
+    "ML": 0.058,
+    "MC": 0.064,
+    "MCL": 0.064,
+    "MCR": 0.064,
     "OMR": 0.026,
     "OML": 0.026,
     "OMC": 0.032,
-    "FW": 0
+    "OMCL": 0.032,
+    "OMCR": 0.032,
+    "FC": 0
 }
 
 FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
