@@ -72,6 +72,22 @@ FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
     "LONGSHOT": [0.06, 0.12, 0.06, 0.0, 0.02, 0.0, 0.02, 0.02]
 }
 
+ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
+    "DIRECT": ["pace", "technique"]
+}
+
+ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
+    "DIRECT": ["passing", "workrate", "positioning"]
+}
+
+ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
+    "DIRECT": ["marking", "workrate"]
+}
+
+ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
+    "DIRECT": ["positioning", "pace", "tackling"]
+}
+
 
 def get_assist_possibility(style: AttackingStyle, position: str) -> float:
     return TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT[style.name + "-" + position.upper()]
