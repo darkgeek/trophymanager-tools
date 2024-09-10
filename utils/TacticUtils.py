@@ -61,7 +61,9 @@ POS_TO_POSSIBILITY_DICT = {
     "OMC": 0.032,
     "OMCL": 0.032,
     "OMCR": 0.032,
-    "FC": 0
+    "FC": 0,
+    "FCL": 0,
+    "FCR": 0,
 }
 
 FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {

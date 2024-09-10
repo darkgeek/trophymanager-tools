@@ -1,10 +1,11 @@
 import copy
-from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility
+from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility
 from model.FinishStyle import FinishStyle
 from model.AttackingStyle import AttackingStyle
 from model.Lineup import Lineup
 from model.Player import Player
 from model.DuelReport import AttackingDuelReport, DuelPlayer, DuelSkill, FinishDuelStyle, GkDuelReport
+from operator import attrgetter
 
 
 class Direct:
@@ -27,7 +28,7 @@ class Direct:
     def buildAssistPlayers(self):
         assist_players = []
         for lineup_player in self.my_lineup.players:
-            if lineup_player.position == "gk":
+            if lineup_player.position == "gk" or lineup_player.position.startswith("sub"):
                 continue
 
             player = get_player_detail_by_no(self.my_players, lineup_player.no)
@@ -48,7 +49,7 @@ class Direct:
     def buildDefendPlayers(self):
         defend_players = []
         for lineup_player in self.opponent_lineup.players:
-            if lineup_player.position == "gk":
+            if lineup_player.position == "gk" or lineup_player.position.startswith("sub"):
                 continue
 
             player = get_player_detail_by_no(
@@ -68,7 +69,7 @@ class Direct:
     def buildFinishPlayers(self):
         finish_players = []
         for lineup_player in self.my_lineup.players:
-            if lineup_player.position == "gk":
+            if lineup_player.position == "gk" or lineup_player.position.startswith("sub"):
                 continue
 
             player = get_player_detail_by_no(self.my_players, lineup_player.no)
@@ -88,7 +89,7 @@ class Direct:
     def buildGkDuelReports(self):
         gk_duel_reports = []
         for lineup_player in self.opponent_lineup.players:
-            if lineup_player.position != "gk":
+            if lineup_player.position != "gk" or lineup_player.position.startswith("sub"):
                 continue
 
             player = get_player_detail_by_no(self.my_players, lineup_player.no)
