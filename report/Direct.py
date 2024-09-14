@@ -1,5 +1,5 @@
 import copy
-from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility
+from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility, get_required_duel_skills
 from model.FinishStyle import FinishStyle
 from model.AttackingStyle import AttackingStyle
 from model.Lineup import Lineup
@@ -34,12 +34,10 @@ class Direct:
             player = get_player_detail_by_no(self.my_players, lineup_player.no)
             possibility = get_assist_possibility(
                 self.my_attacking_style, lineup_player.position)
-            primary_skills = [DuelSkill(name="pace", value=player.pace, formation_bonus=0.0, routine_bonus=0.0),
-                              DuelSkill(name="technique", value=player.technique, formation_bonus=0.0, routine_bonus=0.0)]
-            secondary_skills = [DuelSkill(name="passing", value=player.passing, formation_bonus=0.0, routine_bonus=0.0),
-                                DuelSkill(name="workrate", value=player.workrate,
-                                          formation_bonus=0.0, routine_bonus=0.0),
-                                DuelSkill(name="positioning", value=player.positioning, formation_bonus=0.0, routine_bonus=0.0)]
+            primary_skills = get_required_duel_skills(
+                self.my_attacking_style, True, True, player)
+            secondary_skills = get_required_duel_skills(
+                self.my_attacking_style, True, False, player)
             assist_player = DuelPlayer(name=player.name, position=lineup_player.position,
                                        possibility=possibility, primary_skills=primary_skills, secondary_skills=secondary_skills)
             assist_players.append(assist_player)
@@ -55,10 +53,10 @@ class Direct:
             player = get_player_detail_by_no(
                 self.opponent_players, lineup_player.no)
             possibility = get_defend_possibility(lineup_player.position)
-            primary_skills = [DuelSkill(name="marking", value=player.marking, formation_bonus=0.0, routine_bonus=0.0), DuelSkill(
-                name="workrate", value=player.workrate, formation_bonus=0.0, routine_bonus=0.0)]
-            secondary_skills = [DuelSkill(name="positioning", value=player.positioning, formation_bonus=0.0, routine_bonus=0.0), DuelSkill(
-                name="pace", value=player.pace, formation_bonus=0.0, routine_bonus=0.0), DuelSkill(name="tackling", value=player.tackling, formation_bonus=0.0, routine_bonus=0.0)]
+            primary_skills = get_required_duel_skills(
+                self.my_attacking_style, False, True, player)
+            secondary_skills = get_required_duel_skills(
+                self.my_attacking_style, False, False, player)
 
             defend_player = DuelPlayer(name=player.name, position=lineup_player.position,
                                        possibility=possibility, primary_skills=primary_skills, secondary_skills=secondary_skills)

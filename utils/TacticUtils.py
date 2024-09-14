@@ -1,6 +1,7 @@
 from model.AttackingStyle import AttackingStyle
 from model.Player import Player
 from model.FinishStyle import FinishStyle
+from model.DuelReport import DuelSkill
 
 TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "DIRECT-RB": 0.1,
@@ -111,6 +112,31 @@ def get_finish_possibility(style: AttackingStyle, position: str) -> float:
 
 def get_finish_style_possibility(style: AttackingStyle, finish_style: FinishStyle):
     return TACTIC_STYLE_TO_POSSIBILITY_DICT[style.name + "-" + finish_style.name]
+
+
+def get_required_skills(style: AttackingStyle, is_assist_player: bool, is_primary_skills: bool) -> [str]:
+    if (is_assist_player and is_primary_skills):
+        return ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT[style.name]
+
+    if (is_assist_player and not is_primary_skills):
+        return ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT[style.name]
+
+    if (not is_assist_player and is_primary_skills):
+        return ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT[style.name]
+
+    if (not is_assist_player and not is_primary_skills):
+        return ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT[style.name]
+
+
+def get_required_duel_skills(style: AttackingStyle, is_assist_player: bool, is_primary_skills: bool, player: Player) -> [DuelSkill]:
+    skills = get_required_skills(style, is_assist_player, is_primary_skills)
+
+    duel_skills = []
+    for skill in skills:
+        duel_skills.append(DuelSkill(name=skill, value=getattr(
+            player, skill), formation_bonus=0.0, routine_bonus=0.0))
+
+    return duel_skills
 
 
 def calculate_effective_value_for_gk(ori_value: int, back_players: [Player], finish_style: FinishStyle) -> int:
