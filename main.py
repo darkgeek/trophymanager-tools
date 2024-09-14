@@ -19,6 +19,22 @@ def printDuelPlayers(players: [DuelPlayer]):
         print("\n")
 
 
+def find_by_postition(players: [DuelPlayer], positions: [str]) -> [DuelPlayer]:
+    candidates = []
+    for player in players:
+        if player.position in positions:
+            candidates.append(player)
+
+    return candidates
+
+
+def printDuelPlayers(attack_players: [DuelPlayer], defend_players: [DuelPlayer]):
+    # Duel for left
+    left_attackers = find_by_postition(
+        attack_players, ['oml', 'ml', 'dml', 'lb'])
+    right_defenders = find_by_postition(defend_players, ['rb', 'dmr', 'mr'])
+
+
 def printGkDuelReports(reports: [GkDuelReport]):
     for report in reports:
         print(
