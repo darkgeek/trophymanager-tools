@@ -42,7 +42,7 @@ class TacticDuelReport:
                                        possibility=possibility, primary_skills=primary_skills, secondary_skills=secondary_skills)
             assist_players.append(assist_player)
 
-        return assist_players
+        return sorted(assist_players, key=attrgetter("possibility"), reverse=True)
 
     def buildDefendPlayers(self):
         defend_players = []
