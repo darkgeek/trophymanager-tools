@@ -16,7 +16,20 @@ TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "DIRECT-OMR": 0.09,
     "DIRECT-OML": 0.09,
     "DIRECT-OMC": 0.11,
-    "DIRECT-FW": 0.11
+    "DIRECT-FW": 0.11,
+    "WINGS-RB": 0.26,
+    "WINGS-LB": 0.26,
+    "WINGS-CB": 0.0,
+    "WINGS-DMR": 0.21,
+    "WINGS-DML": 0.21,
+    "WINGS-DMC": 0.0,
+    "WINGS-RM": 0.26,
+    "WINGS-LM": 0.26,
+    "WINGS-CM": 0.0,
+    "WINGS-OMR": 0.27,
+    "WINGS-OML": 0.27,
+    "WINGS-OMC": 0.0,
+    "WINGS-FW": 0.0
 }
 
 TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
@@ -32,13 +45,29 @@ TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
     "DIRECT-OMR": 0.188,
     "DIRECT-OML": 0.188,
     "DIRECT-OMC": 0.188,
-    "DIRECT-FW": 0.25
+    "DIRECT-FW": 0.25,
+    "WINGS-RB": 0.0,
+    "WINGS-LB": 0.0,
+    "WINGS-CB": 0.0,
+    "WINGS-DMR": 0.063,
+    "WINGS-DML": 0.063,
+    "WINGS-DMC": 0.063,
+    "WINGS-RM": 0.125,
+    "WINGS-LM": 0.125,
+    "WINGS-CM": 0.125,
+    "WINGS-OMR": 0.188,
+    "WINGS-OML": 0.188,
+    "WINGS-OMC": 0.188,
+    "WINGS-FW": 0.25
 }
 
 TACTIC_STYLE_TO_POSSIBILITY_DICT = {
     "DIRECT-HEADER": 0.32,
     "DIRECT-NORMAL": 0.33,
-    "DIRECT-LONGSHOT": 0.35
+    "DIRECT-LONGSHOT": 0.35,
+    "WINGS-HEADER": 0.65,
+    "WINGS-NORMAL": 0.30,
+    "WINGS-LONGSHOT": 0.5
 }
 
 POS_TO_POSSIBILITY_DICT = {
@@ -74,19 +103,23 @@ FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
 }
 
 ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
-    "DIRECT": ["pace", "technique"]
+    "DIRECT": ["pace", "technique"],
+    "WINGS": ["pace", "crossing", "technique"]
 }
 
 ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
-    "DIRECT": ["passing", "workrate", "positioning"]
+    "DIRECT": ["passing", "workrate", "positioning"],
+    "WINGS": ["workrate", "strength"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
-    "DIRECT": ["marking", "workrate"]
+    "DIRECT": ["marking", "workrate"],
+    "WINGS": ["pace", "tackling", "marking"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
-    "DIRECT": ["positioning", "pace", "tackling"]
+    "DIRECT": ["positioning", "pace", "tackling"],
+    "WINGS": ["positioning", "workrate", "strength"]
 }
 
 
