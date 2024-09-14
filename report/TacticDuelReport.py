@@ -8,7 +8,7 @@ from model.DuelReport import AttackingDuelReport, DuelPlayer, DuelSkill, FinishD
 from operator import attrgetter
 
 
-class Direct:
+class TacticDuelReport:
     def load_data(self, my_lineup: Lineup, opponent_lineup: Lineup, my_attacking_style: AttackingStyle, opponent_attacking_style: AttackingStyle, my_players: [Player], opponent_players: [Player]):
         self.my_lineup = my_lineup
         self.opponent_lineup = opponent_lineup
