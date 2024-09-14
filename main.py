@@ -28,11 +28,36 @@ def find_by_postition(players: [DuelPlayer], positions: [str]) -> [DuelPlayer]:
     return candidates
 
 
-def printDuelPlayers(attack_players: [DuelPlayer], defend_players: [DuelPlayer]):
+def printDuelPlayersReport(attack_players: [DuelPlayer], defend_players: [DuelPlayer]):
     # Duel for left
     left_attackers = find_by_postition(
-        attack_players, ['oml', 'ml', 'dml', 'lb'])
-    right_defenders = find_by_postition(defend_players, ['rb', 'dmr', 'mr'])
+        attack_players, ['oml', 'lom', 'ml', 'lm', 'dml', 'ldm', 'lb', 'dl'])
+    right_defenders = find_by_postition(
+        defend_players, ['rb',  'dr', 'dmr', 'rdm', 'mr', 'rm'])
+    print("> Left attackers:")
+    printDuelPlayers(left_attackers)
+    print("vs Right defenders:")
+    printDuelPlayers(right_defenders)
+
+    # Duel for right
+    right_attackers = find_by_postition(
+        attack_players, ['omr', 'rom', 'rm', 'mr', 'dmr', 'rdm', 'rb', 'dr'])
+    left_defenders = find_by_postition(
+        defend_players, ['lb', 'dl', 'dml', 'ldm', 'lm', 'ml'])
+    print("> Right attackers:")
+    printDuelPlayers(right_attackers)
+    print("vs Left defenders:")
+    printDuelPlayers(left_defenders)
+
+    # Duel for center
+    center_attackers = find_by_postition(
+        attack_players, ['omc', 'omcl', 'omcr', 'mc', 'cm', 'mcl', 'cml', 'mcr', 'cmr', 'dmc',  'cdm', 'dmcl', 'dmcr', 'cb', 'cbl', 'cbr', 'dc', 'dcl', 'dcr'])
+    center_defenders = find_by_postition(defend_players, [
+                                         'cb',  'cbl',  'cbr', 'dc', 'dcl', 'dcr', 'dmc', 'dmcl', 'dmcr', 'mc', 'mcl', 'mcr', 'cm', 'cml', 'cmr'])
+    print("> Center attackers:")
+    printDuelPlayers(center_attackers)
+    print("vs Center defenders:")
+    printDuelPlayers(center_defenders)
 
 
 def printGkDuelReports(reports: [GkDuelReport]):
@@ -58,11 +83,8 @@ print("====== Attacking Report ======")
 print(f"style: Direct")
 
 print("# Assist Phase:")
-print("## My assist players:")
-printDuelPlayers(directReport.assist_players)
-
-print("## Opponent defend players:")
-printDuelPlayers(directReport.defend_players)
+printDuelPlayersReport(directReport.assist_players,
+                       directReport.defend_players)
 
 print("# Finish Phase:")
 print("## My finish players:")
