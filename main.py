@@ -75,20 +75,22 @@ my_lineup = load_lineup_data("my_lineup.data")
 print("Done.")
 
 print("Building report...")
-directReport = TacticDuelReport().load_data(my_lineup, opponent_lineup, AttackingStyle.DIRECT,
-                                            AttackingStyle.DIRECT, my_players, opponent_players).build()
+my_attacking_style = AttackingStyle.WINGS
+opponent_attacking_style = AttackingStyle.WINGS
+attackingReport = TacticDuelReport().load_data(my_lineup, opponent_lineup,
+                                               my_attacking_style, opponent_attacking_style, my_players, opponent_players).build()
 print("Done.")
 
 print("====== Attacking Report ======")
-print(f"style: Direct")
+print(f"style: {my_attacking_style.name}")
 
 print("# Assist Phase:")
-printDuelPlayersReport(directReport.assist_players,
-                       directReport.defend_players)
+printDuelPlayersReport(attackingReport.assist_players,
+                       attackingReport.defend_players)
 
 print("# Finish Phase:")
 print("## My finish players:")
-printDuelPlayers(directReport.finish_players)
+printDuelPlayers(attackingReport.finish_players)
 
 print("## Opponent GK player:")
-printGkDuelReports(directReport.gk_duel_reports)
+printGkDuelReports(attackingReport.gk_duel_reports)
