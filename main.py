@@ -4,6 +4,7 @@ from report.TacticDuelReport import TacticDuelReport
 from model.AttackingStyle import AttackingStyle
 from model.DuelReport import DuelPlayer, GkDuelReport
 
+
 def printDuelPlayers(players: [DuelPlayer]):
     for player in players:
         print(f"{player.name}: {player.position},{player.possibility}")
@@ -20,7 +21,8 @@ def printDuelPlayers(players: [DuelPlayer]):
 
 def printGkDuelReports(reports: [GkDuelReport]):
     for report in reports:
-        print(f"{report.finish_duel_style.style.name}: {report.finish_duel_style.possibility}")
+        print(
+            f"{report.finish_duel_style.style.name}: {report.finish_duel_style.possibility}")
         print(report.effeftive_gk_info)
 
 

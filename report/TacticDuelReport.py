@@ -1,5 +1,5 @@
 import copy
-from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility, get_required_duel_skills
+from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility, get_required_duel_skills, populate_effective_values_for_gk
 from model.FinishStyle import FinishStyle
 from model.AttackingStyle import AttackingStyle
 from model.Lineup import Lineup
@@ -85,16 +85,22 @@ class TacticDuelReport:
         return sorted(finish_players, key=attrgetter("possibility"), reverse=True)
 
     def buildGkDuelReports(self):
+        back_players = []
         gk_duel_reports = []
         for lineup_player in self.opponent_lineup.players:
+            player = get_player_detail_by_no(self.my_players, lineup_player.no)
+            if lineup_player.position in ["dl", "dr", "dcl", "dcr", "dc"]:
+                back_players.append(player)
+
             if lineup_player.position != "gk" or lineup_player.position.startswith("sub"):
                 continue
 
-            player = get_player_detail_by_no(self.my_players, lineup_player.no)
             for finish_style in FinishStyle:
                 finish_duel_style = FinishDuelStyle(
                     style=finish_style, possibility=get_finish_style_possibility(self.my_attacking_style, finish_style))
                 effeftive_gk_info = copy.deepcopy(player)
+                populate_effective_values_for_gk(
+                    effeftive_gk_info, back_players, finish_style)
 
                 report = GkDuelReport(
                     finish_duel_style=finish_duel_style, effeftive_gk_info=effeftive_gk_info)

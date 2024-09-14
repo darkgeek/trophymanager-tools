@@ -153,3 +153,28 @@ def calculate_effective_value_for_gk(ori_value: int, back_players: [Player], fin
         value_from_backs / len(back_players)
 
     return int(effeftive_value)
+
+
+def populate_effective_values_for_gk(gk_player: Player, back_players: [Player], finish_style: FinishStyle):
+    gk_player.strength = calculate_effective_value_for_gk(
+        gk_player.strength, back_players, finish_style)
+    gk_player.stamina = calculate_effective_value_for_gk(
+        gk_player.stamina, back_players, finish_style)
+    gk_player.pace = calculate_effective_value_for_gk(
+        gk_player.pace, back_players, finish_style)
+    gk_player.handling = calculate_effective_value_for_gk(
+        gk_player.handling, back_players, finish_style)
+    gk_player.oneonones = calculate_effective_value_for_gk(
+        gk_player.oneonones, back_players, finish_style)
+    gk_player.reflexes = calculate_effective_value_for_gk(
+        gk_player.reflexes, back_players, finish_style)
+    gk_player.arialability = calculate_effective_value_for_gk(
+        gk_player.arialability, back_players, finish_style)
+    gk_player.jumping = calculate_effective_value_for_gk(
+        gk_player.jumping, back_players, finish_style)
+    gk_player.communication = calculate_effective_value_for_gk(
+        gk_player.communication, back_players, finish_style)
+    gk_player.kicking = calculate_effective_value_for_gk(
+        gk_player.kicking, back_players, finish_style)
+    gk_player.throwing = calculate_effective_value_for_gk(
+        gk_player.throwing, back_players, finish_style)
