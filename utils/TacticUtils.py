@@ -42,7 +42,33 @@ TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "SHORTPASSING-OMR": 0.08,
     "SHORTPASSING-OML": 0.08,
     "SHORTPASSING-OMC": 0.17,
-    "SHORTPASSING-FW": 0.17
+    "SHORTPASSING-FW": 0.17,
+    "LONGBALLS-RB": 0.19,
+    "LONGBALLS-LB": 0.19,
+    "LONGBALLS-CB": 0.34,
+    "LONGBALLS-DMR": 0.11,
+    "LONGBALLS-DML": 0.11,
+    "LONGBALLS-DMC": 0.17,
+    "LONGBALLS-RM": 0.08,
+    "LONGBALLS-LM": 0.08,
+    "LONGBALLS-CM": 0.11,
+    "LONGBALLS-OMR": 0.0,
+    "LONGBALLS-OML": 0.0,
+    "LONGBALLS-OMC": 0.0,
+    "LONGBALLS-FW": 0.0,
+    "THROUGHBALLS-RB": 0.10,
+    "THROUGHBALLS-LB": 0.10,
+    "THROUGHBALLS-CB": 0.12,
+    "THROUGHBALLS-DMR": 0.06,
+    "THROUGHBALLS-DML": 0.06,
+    "THROUGHBALLS-DMC": 0.07,
+    "THROUGHBALLS-RM": 0.09,
+    "THROUGHBALLS-LM": 0.09,
+    "THROUGHBALLS-CM": 0.09,
+    "THROUGHBALLS-OMR": 0.09,
+    "THROUGHBALLS-OML": 0.09,
+    "THROUGHBALLS-OMC": 0.19,
+    "THROUGHBALLS-FW": 0.19
 }
 
 TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
@@ -84,7 +110,33 @@ TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
     "SHORTPASSING-OMR": 0.188,
     "SHORTPASSING-OML": 0.188,
     "SHORTPASSING-OMC": 0.188,
-    "SHORTPASSING-FW": 0.25
+    "SHORTPASSING-FW": 0.25,
+    "LONGBALLS-RB": 0.0,
+    "LONGBALLS-LB": 0.0,
+    "LONGBALLS-CB": 0.0,
+    "LONGBALLS-DMR": 0.097,
+    "LONGBALLS-DML": 0.097,
+    "LONGBALLS-DMC": 0.032,
+    "LONGBALLS-RM": 0.097,
+    "LONGBALLS-LM": 0.097,
+    "LONGBALLS-CM": 0.097,
+    "LONGBALLS-OMR": 0.194,
+    "LONGBALLS-OML": 0.194,
+    "LONGBALLS-OMC": 0.194,
+    "LONGBALLS-FW": 0.29,
+    "THROUGHBALLS-RB": 0.0,
+    "THROUGHBALLS-LB": 0.0,
+    "THROUGHBALLS-CB": 0.0,
+    "THROUGHBALLS-DMR": 0.097,
+    "THROUGHBALLS-DML": 0.097,
+    "THROUGHBALLS-DMC": 0.032,
+    "THROUGHBALLS-RM": 0.097,
+    "THROUGHBALLS-LM": 0.097,
+    "THROUGHBALLS-CM": 0.097,
+    "THROUGHBALLS-OMR": 0.194,
+    "THROUGHBALLS-OML": 0.194,
+    "THROUGHBALLS-OMC": 0.194,
+    "THROUGHBALLS-FW": 0.29
 }
 
 TACTIC_STYLE_TO_POSSIBILITY_DICT = {
@@ -97,6 +149,12 @@ TACTIC_STYLE_TO_POSSIBILITY_DICT = {
     "SHORTPASSING-HEADER": 0.12,
     "SHORTPASSING-NORMAL": 0.53,
     "SHORTPASSING-LONGSHOT": 0.35,
+    "LONGBALLS-HEADER": 0.65,
+    "LONGBALLS-NORMAL": 0.30,
+    "LONGBALLS-LONGSHOT": 0.05,
+    "THROUGHBALLS-HEADER": 0.15,
+    "THROUGHBALLS-NORMAL": 0.70,
+    "THROUGHBALLS-LONGSHOT": 0.15,
 }
 
 POS_TO_POSSIBILITY_DICT = {
@@ -134,25 +192,33 @@ FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
 ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
     "DIRECT": ["pace", "technique"],
     "WINGS": ["pace", "crossing", "technique"],
-    "SHORTPASSING": ["passing", "technique"]
+    "SHORTPASSING": ["passing", "technique"],
+    "LONGBALLS": ["passing", "crossing", "technique", "workrate", "positioning"],
+    "THROUGHBALLS": ["passing", "technique", "crossing", "workrate", "positioning"]
 }
 
 ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
     "DIRECT": ["passing", "workrate", "positioning"],
     "WINGS": ["workrate", "strength"],
-    "SHORTPASSING": ["workrate", "pace", "positioning"]
+    "SHORTPASSING": ["workrate", "pace", "positioning"],
+    "LONGBALLS": ["heading", "strength"],
+    "THROUGHBALLS": ["pace"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
     "DIRECT": ["marking", "workrate"],
     "WINGS": ["pace", "tackling", "marking"],
-    "SHORTPASSING": ["positioning", "tackling"]
+    "SHORTPASSING": ["positioning", "tackling"],
+    "LONGBALLS": ["heading"],
+    "THROUGHBALLS": ["pace"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
     "DIRECT": ["positioning", "pace", "tackling"],
     "WINGS": ["positioning", "workrate", "strength"],
-    "SHORTPASSING": ["marking", "workrate"]
+    "SHORTPASSING": ["marking", "workrate"],
+    "LONGBALLS": ["marking", "tackling"],
+    "THROUGHBALLS": ["positioning"]
 }
 
 
