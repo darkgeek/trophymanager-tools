@@ -201,8 +201,8 @@ ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
     "DIRECT": ["passing", "workrate", "positioning"],
     "WINGS": ["workrate", "strength"],
     "SHORTPASSING": ["workrate", "pace", "positioning"],
-    "LONGBALLS": ["heading", "strength"],
-    "THROUGHBALLS": ["pace"]
+    "LONGBALLS": [],
+    "THROUGHBALLS": []
 }
 
 ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
@@ -220,6 +220,25 @@ ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
     "LONGBALLS": ["marking", "tackling"],
     "THROUGHBALLS": ["positioning"]
 }
+
+ATTACKING_STYLE_TO_ATTACKING_PLAYER_SKILL = {
+    "DIRECT": ["pace", "technique"],
+    "WINGS": ["heading"],
+    "SHORTPASSING": ["passing", "technique"],
+    "LONGBALLS": ["heading", "strength"],
+    "THROUGHBALLS": ["pace"]
+}
+
+
+def get_required_skills_for_attacking_players(style: AttackingStyle, player: Player) -> [DuelSkill]:
+    skills = ATTACKING_STYLE_TO_ATTACKING_PLAYER_SKILL(style.name)
+
+    duel_skills = []
+    for skill in skills:
+        duel_skills.append(DuelSkill(name=skill, value=getattr(
+            player, skill), formation_bonus=0.0, routine_bonus=0.0))
+
+    return duel_skills
 
 
 def get_assist_possibility(style: AttackingStyle, position: str) -> float:
