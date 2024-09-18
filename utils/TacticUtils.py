@@ -29,7 +29,20 @@ TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "WINGS-OMR": 0.27,
     "WINGS-OML": 0.27,
     "WINGS-OMC": 0.0,
-    "WINGS-FW": 0.0
+    "WINGS-FW": 0.0,
+    "SHORTPASSING-RB": 0.0,
+    "SHORTPASSING-LB": 0.0,
+    "SHORTPASSING-CB": 0.09,
+    "SHORTPASSING-DMR": 0.09,
+    "SHORTPASSING-DML": 0.09,
+    "SHORTPASSING-DMC": 0.18,
+    "SHORTPASSING-RM": 0.05,
+    "SHORTPASSING-LM": 0.05,
+    "SHORTPASSING-CM": 0.17,
+    "SHORTPASSING-OMR": 0.08,
+    "SHORTPASSING-OML": 0.08,
+    "SHORTPASSING-OMC": 0.17,
+    "SHORTPASSING-FW": 0.17
 }
 
 TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
@@ -58,7 +71,20 @@ TACTIC_POS_TO_FINISH_POSSIBILITY_DICT = {
     "WINGS-OMR": 0.188,
     "WINGS-OML": 0.188,
     "WINGS-OMC": 0.188,
-    "WINGS-FW": 0.25
+    "WINGS-FW": 0.25,
+    "SHORTPASSING-RB": 0.0,
+    "SHORTPASSING-LB": 0.0,
+    "SHORTPASSING-CB": 0.0,
+    "SHORTPASSING-DMR": 0.063,
+    "SHORTPASSING-DML": 0.063,
+    "SHORTPASSING-DMC": 0.063,
+    "SHORTPASSING-RM": 0.125,
+    "SHORTPASSING-LM": 0.125,
+    "SHORTPASSING-CM": 0.125,
+    "SHORTPASSING-OMR": 0.188,
+    "SHORTPASSING-OML": 0.188,
+    "SHORTPASSING-OMC": 0.188,
+    "SHORTPASSING-FW": 0.25
 }
 
 TACTIC_STYLE_TO_POSSIBILITY_DICT = {
@@ -67,7 +93,10 @@ TACTIC_STYLE_TO_POSSIBILITY_DICT = {
     "DIRECT-LONGSHOT": 0.35,
     "WINGS-HEADER": 0.65,
     "WINGS-NORMAL": 0.30,
-    "WINGS-LONGSHOT": 0.5
+    "WINGS-LONGSHOT": 0.5,
+    "SHORTPASSING-HEADER": 0.12,
+    "SHORTPASSING-NORMAL": 0.53,
+    "SHORTPASSING-LONGSHOT": 0.35,
 }
 
 POS_TO_POSSIBILITY_DICT = {
@@ -104,22 +133,26 @@ FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
 
 ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
     "DIRECT": ["pace", "technique"],
-    "WINGS": ["pace", "crossing", "technique"]
+    "WINGS": ["pace", "crossing", "technique"],
+    "SHORTPASSING": ["passing", "technique"]
 }
 
 ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
     "DIRECT": ["passing", "workrate", "positioning"],
-    "WINGS": ["workrate", "strength"]
+    "WINGS": ["workrate", "strength"],
+    "SHORTPASSING": ["workrate", "pace", "positioning"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
     "DIRECT": ["marking", "workrate"],
-    "WINGS": ["pace", "tackling", "marking"]
+    "WINGS": ["pace", "tackling", "marking"],
+    "SHORTPASSING": ["positioning", "tackling"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
     "DIRECT": ["positioning", "pace", "tackling"],
-    "WINGS": ["positioning", "workrate", "strength"]
+    "WINGS": ["positioning", "workrate", "strength"],
+    "SHORTPASSING": ["marking", "workrate"]
 }
 
 
