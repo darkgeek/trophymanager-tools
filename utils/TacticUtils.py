@@ -221,7 +221,7 @@ ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
     "THROUGHBALLS": ["positioning"]
 }
 
-ATTACKING_STYLE_TO_ATTACKING_PLAYER_SKILL = {
+ATTACKING_STYLE_TO_FINISHING_PLAYER_SKILLS = {
     "DIRECT": ["pace", "technique"],
     "WINGS": ["heading"],
     "SHORTPASSING": ["passing", "technique"],
@@ -229,9 +229,15 @@ ATTACKING_STYLE_TO_ATTACKING_PLAYER_SKILL = {
     "THROUGHBALLS": ["pace"]
 }
 
+GENERAL_PRIMARY_SKILLS_FOR_FINISH_PLAYER = [
+    "finishing", "heading", "technique", "longshots"]
 
-def get_required_skills_for_attacking_players(style: AttackingStyle, player: Player) -> [DuelSkill]:
-    skills = ATTACKING_STYLE_TO_ATTACKING_PLAYER_SKILL(style.name)
+
+def get_required_skills_for_finish_players(style: AttackingStyle, player: Player) -> [DuelSkill]:
+    skills = ATTACKING_STYLE_TO_FINISHING_PLAYER_SKILLS[style.name]
+    for gs in GENERAL_PRIMARY_SKILLS_FOR_FINISH_PLAYER:
+        if gs not in skills:
+            skills.append(gs)
 
     duel_skills = []
     for skill in skills:

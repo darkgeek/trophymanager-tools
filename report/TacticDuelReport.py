@@ -1,5 +1,5 @@
 import copy
-from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility, get_required_duel_skills, populate_effective_values_for_gk
+from utils.TacticUtils import get_assist_possibility, get_player_detail_by_no, get_defend_possibility, get_finish_possibility, get_finish_style_possibility, get_required_duel_skills, populate_effective_values_for_gk, get_required_skills_for_finish_players
 from model.FinishStyle import FinishStyle
 from model.AttackingStyle import AttackingStyle
 from model.Lineup import Lineup
@@ -73,8 +73,8 @@ class TacticDuelReport:
             player = get_player_detail_by_no(self.my_players, lineup_player.no)
             possibility = get_finish_possibility(
                 self.my_attacking_style, lineup_player.position)
-            primary_skills = [DuelSkill(name="heading", value=player.heading, formation_bonus=0.0, routine_bonus=0.0), DuelSkill(name="technique", value=player.technique, formation_bonus=0.0, routine_bonus=0.0), DuelSkill(
-                name="finishing", value=player.finishing, formation_bonus=0.0, routine_bonus=0.0), DuelSkill(name="longshots", value=player.longshots, formation_bonus=0.0, routine_bonus=0.0)]
+            primary_skills = get_required_skills_for_finish_players(
+                self.my_attacking_style, player)
             secondary_skills = [DuelSkill(
                 name="setpieces", value=player.setpieces, formation_bonus=0.0, routine_bonus=0.0)]
 
