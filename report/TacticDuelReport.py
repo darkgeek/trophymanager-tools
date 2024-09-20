@@ -87,11 +87,13 @@ class TacticDuelReport:
     def buildGkDuelReports(self):
         back_players = []
         gk_duel_reports = []
+
         for lineup_player in self.opponent_lineup.players:
             player = get_player_detail_by_no(self.my_players, lineup_player.no)
-            if lineup_player.position in ["dl", "dr", "dcl", "dcr", "dc"]:
+            if lineup_player.position in ["dl", "dr", "dcl", "dcr", "dc", "lb", "rb", "cb", "cbl", "cbr"]:
                 back_players.append(player)
 
+        for lineup_player in self.opponent_lineup.players:
             if lineup_player.position != "gk" or lineup_player.position.startswith("sub"):
                 continue
 

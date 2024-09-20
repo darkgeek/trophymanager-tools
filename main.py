@@ -74,23 +74,43 @@ opponent_lineup = load_lineup_json("opponent_lineup.json", LineupParty.AWAY)
 my_lineup = load_lineup_data("my_lineup.data")
 print("Done.")
 
-print("Building report...")
 my_attacking_style = AttackingStyle.WINGS
 opponent_attacking_style = AttackingStyle.WINGS
-attackingReport = TacticDuelReport().load_data(my_lineup, opponent_lineup,
-                                               my_attacking_style, opponent_attacking_style, my_players, opponent_players).build()
+
+print("Building attacking report...")
+attacking_report = TacticDuelReport().load_data(my_lineup, opponent_lineup,
+                                                my_attacking_style, opponent_attacking_style, my_players, opponent_players).build()
+print("Done.")
+
+print("Building defending report...")
+defending_report = TacticDuelReport().load_data(opponent_lineup, my_lineup,
+                                                opponent_attacking_style, my_attacking_style, opponent_players, my_players).build()
 print("Done.")
 
 print("====== Attacking Report ======")
 print(f"style: {my_attacking_style.name}")
 
 print("# Assist Phase:")
-printDuelPlayersReport(attackingReport.assist_players,
-                       attackingReport.defend_players)
+printDuelPlayersReport(attacking_report.assist_players,
+                       attacking_report.defend_players)
 
 print("# Finish Phase:")
 print("## My finish players:")
-printDuelPlayers(attackingReport.finish_players)
+printDuelPlayers(attacking_report.finish_players)
 
 print("## Opponent GK player:")
-printGkDuelReports(attackingReport.gk_duel_reports)
+printGkDuelReports(attacking_report.gk_duel_reports)
+
+print("====== Defending Report ======")
+print(f"style: {opponent_attacking_style.name}")
+
+print("# Assist Phase:")
+printDuelPlayersReport(defending_report.assist_players,
+                       defending_report.defend_players)
+
+print("# Finish Phase:")
+print("## Opponent finish players:")
+printDuelPlayers(defending_report.finish_players)
+
+print("## My GK player:")
+printGkDuelReports(defending_report.gk_duel_reports)
