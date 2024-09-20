@@ -3,6 +3,7 @@ from model.Lineup import LineupParty, Lineup, LineupPlayer
 from report.TacticDuelReport import TacticDuelReport
 from model.AttackingStyle import AttackingStyle
 from model.DuelReport import DuelPlayer, GkDuelReport
+import argparse
 
 
 def printDuelPlayers(players: [DuelPlayer]):
@@ -67,15 +68,33 @@ def printGkDuelReports(reports: [GkDuelReport]):
         print(report.effeftive_gk_info)
 
 
+# Instantiate the parser
+parser = argparse.ArgumentParser(description='Trophymanager tactic helper')
+
+parser.add_argument(
+    '--mp', type=str, help='my players detail json file', required=True)
+parser.add_argument(
+    '--op', type=str, help='opponent players detail json file', required=True)
+parser.add_argument(
+    '--ml', type=str, help='my lineup data file', required=True)
+parser.add_argument(
+    '--ol', type=str, help='opponent lineup json file', required=True)
+parser.add_argument('--ms', type=str, choices=[
+                    style.name for style in AttackingStyle], help='my attacking style', required=True)
+parser.add_argument('--os', type=str, choices=[
+                    style.name for style in AttackingStyle], help='opponent attacking style', required=True)
+
+args = parser.parse_args()
+
 print("Loading data...")
-my_players = load_players("my_players.json")
-opponent_players = load_players("opponent_players.json")
-opponent_lineup = load_lineup_json("opponent_lineup.json", LineupParty.AWAY)
-my_lineup = load_lineup_data("my_lineup.data")
+my_players = load_players(args.mp)
+opponent_players = load_players(args.op)
+opponent_lineup = load_lineup_json(args.ol, LineupParty.AWAY)
+my_lineup = load_lineup_data(args.ml)
 print("Done.")
 
-my_attacking_style = AttackingStyle.WINGS
-opponent_attacking_style = AttackingStyle.WINGS
+my_attacking_style = AttackingStyle[args.ms]
+opponent_attacking_style = AttackingStyle[args.os]
 
 print("Building attacking report...")
 attacking_report = TacticDuelReport().load_data(my_lineup, opponent_lineup,
