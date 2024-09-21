@@ -386,7 +386,7 @@ ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
     "WINGS": ["pace", "crossing", "technique"],
     "SHORTPASSING": ["passing", "technique"],
     "LONGBALLS": ["passing", "crossing", "technique", "workrate", "positioning"],
-    "THROUGHBALLS": ["passing", "technique", "crossing", "workrate", "positioning"]
+    "THROUGHBALLS": ["pace", "passing", "technique", "crossing", "workrate", "positioning"]
 }
 
 ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
@@ -407,7 +407,7 @@ ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
 
 ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
     "DIRECT": ["positioning", "pace", "tackling"],
-    "WINGS": ["positioning", "workrate", "strength"],
+    "WINGS": ["positioning", "workrate", "strength", "heading"],
     "SHORTPASSING": ["marking", "workrate"],
     "LONGBALLS": ["marking", "tackling"],
     "THROUGHBALLS": ["positioning"]
