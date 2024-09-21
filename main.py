@@ -11,11 +11,13 @@ def printDuelPlayers(players: [DuelPlayer]):
         print(f"{player.name}: {player.position},{player.possibility}")
         print("Primary skills:")
         for skill in player.primary_skills:
-            print(f"    {skill.name}:{skill.value}", end=', ')
+            print(
+                f"    {skill.name}:{skill.value + skill.skill_bonus}", end=', ')
 
         print("\nSecondary skills:")
         for skill in player.secondary_skills:
-            print(f"    {skill.name}:{skill.value}", end=', ')
+            print(
+                f"    {skill.name}:{skill.value + skill.skill_bonus}", end=', ')
 
         print("\n")
 

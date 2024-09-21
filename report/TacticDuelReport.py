@@ -76,7 +76,7 @@ class TacticDuelReport:
             primary_skills = get_required_skills_for_finish_players(
                 self.my_attacking_style, player)
             secondary_skills = [DuelSkill(
-                name="setpieces", value=player.setpieces, formation_bonus=0.0, routine_bonus=0.0)]
+                name="setpieces", value=player.setpieces, skill_bonus=0.0, routine_bonus=0.0)]
 
             finish_player = DuelPlayer(name=player.name, position=lineup_player.position,
                                        possibility=possibility, primary_skills=primary_skills, secondary_skills=secondary_skills)

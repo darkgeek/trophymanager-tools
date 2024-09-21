@@ -380,8 +380,26 @@ ATTACKING_STYLE_TO_FINISHING_PLAYER_SKILLS = {
     "THROUGHBALLS": ["pace"]
 }
 
+
+ATTACKING_STYLE_TO_SKILLS_WITH_BONUS_DICT = {
+    "SHORTPASSING": ["technique", "positioning", "tackling"],
+    "THROUGHBALLS": ["pace"],
+    "DIRECT": ["pace", "technique", "workrate", "marking"],
+    "LONGBALLS": ["heading"],
+    "WINGS": ["pace", "crossing", "tackling"],
+}
+
+
 GENERAL_PRIMARY_SKILLS_FOR_FINISH_PLAYER = [
     "finishing", "heading", "technique", "longshots"]
+
+
+def get_skill_bonus(style: AttackingStyle, skill: str) -> float:
+    skills = ATTACKING_STYLE_TO_SKILLS_WITH_BONUS_DICT[style.name]
+    if skill in skills:
+        return 1.0
+
+    return 0.0
 
 
 def get_required_skills_for_finish_players(style: AttackingStyle, player: Player) -> [DuelSkill]:
@@ -393,7 +411,7 @@ def get_required_skills_for_finish_players(style: AttackingStyle, player: Player
     duel_skills = []
     for skill in skills:
         duel_skills.append(DuelSkill(name=skill, value=getattr(
-            player, skill), formation_bonus=0.0, routine_bonus=0.0))
+            player, skill), skill_bonus=get_skill_bonus(style, skill), routine_bonus=0.0))
 
     return duel_skills
 
@@ -442,7 +460,7 @@ def get_required_duel_skills(style: AttackingStyle, is_assist_player: bool, is_p
     duel_skills = []
     for skill in skills:
         duel_skills.append(DuelSkill(name=skill, value=getattr(
-            player, skill), formation_bonus=0.0, routine_bonus=0.0))
+            player, skill), skill_bonus=get_skill_bonus(style, skill), routine_bonus=0.0))
 
     return duel_skills
 

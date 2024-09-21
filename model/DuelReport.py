@@ -8,7 +8,7 @@ from model.Player import Player
 class DuelSkill:
     name: str
     value: int
-    formation_bonus: float
+    skill_bonus: float
     routine_bonus: float
 
 
