@@ -34,7 +34,7 @@ def load_players(players_data_file: str) -> []:
                         kicking=player_raw["kicking"],
                         throwing=player_raw["throwing"],
                         communication=player_raw["communication"],
-                        rutine=player_raw["rutine"])
+                        rutine=float(player_raw["rutine"]))
         players.append(player)
 
     return players

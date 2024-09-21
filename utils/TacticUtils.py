@@ -2,6 +2,7 @@ from model.AttackingStyle import AttackingStyle
 from model.Player import Player
 from model.FinishStyle import FinishStyle
 from model.DuelReport import DuelSkill
+import math
 
 TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "DIRECT-RB": 0.1,
@@ -394,6 +395,13 @@ GENERAL_PRIMARY_SKILLS_FOR_FINISH_PLAYER = [
     "finishing", "heading", "technique", "longshots"]
 
 
+def get_rutine_bonus(rutine: float, skill: str) -> float:
+    if skill == "stamina":
+        return 0.0
+
+    return 0.03 * (100 - 100 * math.exp(-0.035 * rutine))
+
+
 def get_skill_bonus(style: AttackingStyle, skill: str) -> float:
     skills = ATTACKING_STYLE_TO_SKILLS_WITH_BONUS_DICT[style.name]
     if skill in skills:
@@ -411,7 +419,7 @@ def get_required_skills_for_finish_players(style: AttackingStyle, player: Player
     duel_skills = []
     for skill in skills:
         duel_skills.append(DuelSkill(name=skill, value=getattr(
-            player, skill), skill_bonus=get_skill_bonus(style, skill), routine_bonus=0.0))
+            player, skill), skill_bonus=get_skill_bonus(style, skill), routine_bonus=get_rutine_bonus(player.rutine, skill)))
 
     return duel_skills
 
@@ -460,7 +468,7 @@ def get_required_duel_skills(style: AttackingStyle, is_assist_player: bool, is_p
     duel_skills = []
     for skill in skills:
         duel_skills.append(DuelSkill(name=skill, value=getattr(
-            player, skill), skill_bonus=get_skill_bonus(style, skill), routine_bonus=0.0))
+            player, skill), skill_bonus=get_skill_bonus(style, skill), routine_bonus=get_rutine_bonus(player.rutine, skill)))
 
     return duel_skills
 
