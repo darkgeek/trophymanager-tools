@@ -85,13 +85,15 @@ parser.add_argument('--ms', type=str, choices=[
                     style.name for style in AttackingStyle], help='my attacking style', required=True)
 parser.add_argument('--os', type=str, choices=[
                     style.name for style in AttackingStyle], help='opponent attacking style', required=True)
+parser.add_argument('--olp', type=str, choices=[
+                    party.name for party in LineupParty], help='opponent lineup party', required=True)
 
 args = parser.parse_args()
 
 print("Loading data...")
 my_players = load_players(args.mp)
 opponent_players = load_players(args.op)
-opponent_lineup = load_lineup_json(args.ol, LineupParty.AWAY)
+opponent_lineup = load_lineup_json(args.ol, LineupParty[args.olp])
 my_lineup = load_lineup_data(args.ml)
 print("Done.")
 
