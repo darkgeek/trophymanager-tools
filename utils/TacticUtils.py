@@ -123,6 +123,7 @@ TACTIC_POS_TO_ASSIST_POSSIBILITY_DICT = {
     "LONGBALLS-MCL": 0.11,
     "LONGBALLS-MC": 0.11,
     "LONGBALLS-MCR": 0.11,
+    "LONGBALLS-OM": 0.0,
     "LONGBALLS-OMR": 0.0,
     "LONGBALLS-OML": 0.0,
     "LONGBALLS-OMC": 0.0,
@@ -393,35 +394,35 @@ FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
 }
 
 ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
-    "DIRECT": ["pace", "technique"],
+    "DIRECT": ["pace", "technique", "passing"],
     "WINGS": ["pace", "crossing", "technique"],
     "SHORTPASSING": ["passing", "technique"],
-    "LONGBALLS": ["passing", "crossing", "technique", "workrate", "positioning"],
-    "THROUGHBALLS": ["pace", "passing", "technique", "crossing", "workrate", "positioning"]
+    "LONGBALLS": ["passing", "crossing", "technique"],
+    "THROUGHBALLS": ["pace", "passing", "technique"]
 }
 
 ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
-    "DIRECT": ["passing", "workrate", "positioning"],
+    "DIRECT": ["workrate", "positioning"],
     "WINGS": ["workrate", "strength"],
     "SHORTPASSING": ["workrate", "pace", "positioning"],
-    "LONGBALLS": [],
-    "THROUGHBALLS": []
+    "LONGBALLS": ["workrate", "positioning"],
+    "THROUGHBALLS": ["crossing", "workrate", "positioning"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
-    "DIRECT": ["marking", "workrate"],
+    "DIRECT": ["marking", "workrate", "positioning"],
     "WINGS": ["pace", "tackling", "marking"],
-    "SHORTPASSING": ["positioning", "tackling"],
-    "LONGBALLS": ["heading"],
-    "THROUGHBALLS": ["pace"]
+    "SHORTPASSING": ["marking", "positioning", "workrate"],
+    "LONGBALLS": ["marking", "pace", "positioning", "workrate"],
+    "THROUGHBALLS": ["pace", "marking", "tackling"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
-    "DIRECT": ["positioning", "pace", "tackling", "heading"],
+    "DIRECT": ["pace", "tackling", "heading"],
     "WINGS": ["positioning", "workrate", "strength", "heading"],
-    "SHORTPASSING": ["marking", "workrate"],
-    "LONGBALLS": ["marking", "tackling"],
-    "THROUGHBALLS": ["positioning"]
+    "SHORTPASSING": ["tackling", "pace"],
+    "LONGBALLS": ["strength", "heading", "tackling"],
+    "THROUGHBALLS": ["positioning", "workrate"]
 }
 
 ATTACKING_STYLE_TO_FINISHING_PLAYER_SKILLS = {
