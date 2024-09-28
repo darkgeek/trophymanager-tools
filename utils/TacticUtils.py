@@ -394,35 +394,35 @@ FINISH_STYLE_TO_GK_BACKS_RATIO_DICT = {
 }
 
 ATTACKING_STYLE_TO_ASSIST_PRIMARY_SKILLS_DICT = {
-    "DIRECT": ["pace", "technique", "passing"],
+    "DIRECT": ["pace", "technique"],
     "WINGS": ["pace", "crossing", "technique"],
     "SHORTPASSING": ["passing", "technique"],
     "LONGBALLS": ["passing", "crossing", "technique"],
-    "THROUGHBALLS": ["pace", "passing", "technique"]
+    "THROUGHBALLS": ["passing", "technique", "crossing", "workrate", "positioning"]
 }
 
 ATTACKING_STYLE_TO_ASSIST_SECONDARY_SKILLS_DICT = {
-    "DIRECT": ["workrate", "positioning"],
+    "DIRECT": ["passing", "workrate", "positioning"],
     "WINGS": ["workrate", "strength"],
     "SHORTPASSING": ["workrate", "pace", "positioning"],
     "LONGBALLS": ["workrate", "positioning"],
-    "THROUGHBALLS": ["crossing", "workrate", "positioning"]
+    "THROUGHBALLS": []
 }
 
 ATTACKING_STYLE_TO_DEFEND_PRIMARY_SKILLS_DICT = {
-    "DIRECT": ["marking", "workrate", "positioning"],
+    "DIRECT": ["marking", "workrate"],
     "WINGS": ["pace", "tackling", "marking"],
-    "SHORTPASSING": ["marking", "positioning", "workrate"],
-    "LONGBALLS": ["marking", "pace", "positioning", "workrate"],
-    "THROUGHBALLS": ["pace", "marking", "tackling"]
+    "SHORTPASSING": ["positioning", "tackling"],
+    "LONGBALLS": ["heading"],
+    "THROUGHBALLS": ["pace"]
 }
 
 ATTACKING_STYLE_TO_DEFEND_SECONDARY_SKILLS_DICT = {
-    "DIRECT": ["pace", "tackling", "heading"],
+    "DIRECT": ["positioning", "pace", "tackling", "heading"],
     "WINGS": ["positioning", "workrate", "strength", "heading"],
-    "SHORTPASSING": ["tackling", "pace"],
-    "LONGBALLS": ["strength", "heading", "tackling"],
-    "THROUGHBALLS": ["positioning", "workrate"]
+    "SHORTPASSING": ["marking", "workrate"],
+    "LONGBALLS": ["strength", "marking", "tackling"],
+    "THROUGHBALLS": ["marking", "tackling", "positioning", "workrate"]
 }
 
 ATTACKING_STYLE_TO_FINISHING_PLAYER_SKILLS = {
