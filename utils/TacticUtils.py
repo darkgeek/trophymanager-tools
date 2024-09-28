@@ -445,7 +445,7 @@ def get_rutine_bonus(rutine: float, skill: str) -> float:
 def get_skill_bonus(style: AttackingStyle, skill: str) -> float:
     skills = ATTACKING_STYLE_TO_SKILLS_WITH_BONUS_DICT[style.name]
     if skill in skills:
-        return 1.0
+        return 0.5
 
     return 0.0
 
