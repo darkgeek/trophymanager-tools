@@ -54,7 +54,7 @@ def printDuelPlayersReport(attack_players: [DuelPlayer], defend_players: [DuelPl
 
     # Duel for center
     center_attackers = find_by_postition(
-        attack_players, ['omc', 'omcl', 'omcr', 'mc', 'cm', 'mcl', 'cml', 'mcr', 'cmr', 'dmc',  'cdm', 'dmcl', 'dmcr', 'cb', 'cbl', 'cbr', 'dc', 'dcl', 'dcr'])
+        attack_players, ['fw', 'fwl', 'fwr',  'fc',  'fcl',  'fcr', 'om', 'omc', 'omcl', 'omcr', 'mc', 'cm', 'mcl', 'cml', 'mcr', 'cmr', 'dmc',  'cdm', 'dmcl', 'dmcr', 'cb', 'cbl', 'cbr', 'dc', 'dcl', 'dcr'])
     center_defenders = find_by_postition(defend_players, [
                                          'cb',  'cbl',  'cbr', 'dc', 'dcl', 'dcr', 'dmc', 'dmcl', 'dmcr', 'mc', 'mcl', 'mcr', 'cm', 'cml', 'cmr'])
     print("> Center attackers:")
